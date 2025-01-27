@@ -459,7 +459,7 @@ Transform:
   - {fileID: 1650794722}
   - {fileID: 330585546}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.089, y: -13.186, z: 21.616}
 --- !u!95 &1131728606
 Animator:
   serializedVersion: 5
