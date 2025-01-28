@@ -902,6 +902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1984456038}
   - component: {fileID: 1984456039}
+  - component: {fileID: 1984456040}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -946,6 +947,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1984456040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984456037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97595badd42a02e4cbe4db676c171991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2081267979
 GameObject:
   m_ObjectHideFlags: 0
@@ -4808,7 +4821,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minKillSpeed: 601
+    minKillSpeed: 600
     maxKillSpeed: 10000
     radiusScale: 1
     collidesWith:
@@ -9639,7 +9652,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minKillSpeed: 601
+    minKillSpeed: 600
     maxKillSpeed: 10000
     radiusScale: 1
     collidesWith:
