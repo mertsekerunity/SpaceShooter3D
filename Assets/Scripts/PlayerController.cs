@@ -42,8 +42,10 @@ public class PlayerController : MonoBehaviour
 
     void ProcessTranslation()
     {
-        horizontalThrow = movement.ReadValue<Vector2>().x;
-        verticalThrow = movement.ReadValue<Vector2>().y;
+        Vector2 inputVector = movement.ReadValue<Vector2>();
+
+        horizontalThrow = Mathf.Lerp(horizontalThrow, inputVector.x, Time.deltaTime * controlSpeed);
+        verticalThrow = Mathf.Lerp(verticalThrow, inputVector.y, Time.deltaTime * controlSpeed);
 
         float xOffset = horizontalThrow * Time.deltaTime * controlSpeed;
         float rawXPos = transform.localPosition.x + xOffset;
