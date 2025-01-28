@@ -237,9 +237,51 @@ MonoBehaviour:
   xRange: 5
   yRange: 3
   positionPitchFactor: -2
-  controlPitchFactor: -10
   positionYawFactor: 2
+  controlPitchFactor: -10
   controlRollFactor: -20
+  lasers:
+  - {fileID: 2100425850}
+  - {fileID: 2081267979}
+--- !u!54 &79613039
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79613031}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &79613040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79613031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39601fed4a7ae345baf21a7fba066b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,11 +616,19 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2640858194711771729, guid: a0d54a0a1d9b339469e40d1840d491db,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 79613035}
+      addedObject: {fileID: 79613036}
     - targetCorrespondingSourceObject: {fileID: 2640858194711771729, guid: a0d54a0a1d9b339469e40d1840d491db,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 79613036}
+      addedObject: {fileID: 79613040}
+    - targetCorrespondingSourceObject: {fileID: 2640858194711771729, guid: a0d54a0a1d9b339469e40d1840d491db,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 79613039}
+    - targetCorrespondingSourceObject: {fileID: 2640858194711771729, guid: a0d54a0a1d9b339469e40d1840d491db,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 79613035}
   m_SourcePrefab: {fileID: 100100000, guid: a0d54a0a1d9b339469e40d1840d491db, type: 3}
 --- !u!1001 &484686789
 PrefabInstance:
@@ -910,7 +960,7 @@ GameObject:
   m_Layer: 0
   m_Name: RightLaser
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -923,7 +973,7 @@ Transform:
   m_GameObject: {fileID: 2081267979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.82, y: 0, z: 0.57}
+  m_LocalPosition: {x: 3.82, y: 0, z: 2.8999865}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1019,7 +1069,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -1140,7 +1190,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 600
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4590,9 +4640,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -4758,7 +4808,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minKillSpeed: 0
+    minKillSpeed: 601
     maxKillSpeed: 10000
     radiusScale: 1
     collidesWith:
@@ -4767,7 +4817,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -5741,7 +5791,7 @@ GameObject:
   m_Layer: 0
   m_Name: LeftLaser
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5754,7 +5804,7 @@ Transform:
   m_GameObject: {fileID: 2100425850}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.82, y: 0, z: 0.57}
+  m_LocalPosition: {x: -3.82, y: 0, z: 2.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5850,7 +5900,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -5971,7 +6021,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 600
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9421,9 +9471,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -9589,7 +9639,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minKillSpeed: 0
+    minKillSpeed: 601
     maxKillSpeed: 10000
     radiusScale: 1
     collidesWith:
@@ -9598,7 +9648,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:

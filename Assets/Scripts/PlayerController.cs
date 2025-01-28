@@ -5,16 +5,27 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Input")]
     [SerializeField] InputAction movement;
     [SerializeField] InputAction fire;
+
+    [Header("Speed")]
     [SerializeField] float controlSpeed = 10f;
+
+    [Header("Clamp range")]
     [SerializeField] float xRange = 10f;
     [SerializeField] float yRange = 7f;
 
+    [Header("Screen position based on tuning")]
     [SerializeField] float positionPitchFactor = -2f;
-    [SerializeField] float controlPitchFactor = -10f;
     [SerializeField] float positionYawFactor = 2f;
+
+    [Header("Player input based on tuning")]
+    [SerializeField] float controlPitchFactor = -10f;
     [SerializeField] float controlRollFactor = -20f;
+
+    [Header("Lasers")]
+    [SerializeField] GameObject[] lasers;
 
     float horizontalThrow, verticalThrow;
 
@@ -78,11 +89,20 @@ public class PlayerController : MonoBehaviour
     {
         if(fire.ReadValue<float>() > 0.5f)
         {
-            Debug.Log("Pew pew");
+            SetLasersActive(true);
         }
         else
         {
-            Debug.Log("Not pew pew");
+            SetLasersActive(false);
+        }
+    }
+
+    void SetLasersActive(bool isActive)
+    {
+        foreach(GameObject laser in lasers)
+        {
+            var emissionModule = laser.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = isActive;
         }
     }
 }
