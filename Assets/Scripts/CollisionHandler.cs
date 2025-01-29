@@ -7,6 +7,8 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] float loadDelay = 2f;
 
+    [SerializeField] ParticleSystem explosionVFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,9 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence()
     {
+        explosionVFX.Play();
         GetComponent<PlayerController>().enabled = false;
+        GetComponentInChildren<MeshRenderer>().enabled = false;
         Invoke(nameof(ReloadLevel), loadDelay);
     }
 
