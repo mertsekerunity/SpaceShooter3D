@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         GameObject vfx = Instantiate(explosionVFX, transform.position, Quaternion.identity);
-        //vfx.transform.parent = parent;
+        vfx.transform.parent = parent;
 
         Destroy(gameObject);
     }
