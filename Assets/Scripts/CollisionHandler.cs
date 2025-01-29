@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] float loadDelay = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +21,23 @@ public class CollisionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        StartCrashSequence();
         Debug.Log($"{this.name} Player collided with: {collision.gameObject.name}"); //string interpolation
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log($"{this.name} triggered by: {other.gameObject.name}"); //string interpolation
+    }
+
+    void StartCrashSequence()
+    {
+        GetComponent<PlayerController>().enabled = false;
+        Invoke(nameof(ReloadLevel), loadDelay);
+    }
+
+    void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
